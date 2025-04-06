@@ -27,9 +27,7 @@ class checkstatus(BaseModel):
 
 
 
-def check(data:emailpayload):
-
-    
+def levelone_check(data:emailpayload):
     emailid = data.emailsender
     emailbody  = data.emailbody.split(" ")
     suswordjson =json.load(open("suswords.json","r"))
