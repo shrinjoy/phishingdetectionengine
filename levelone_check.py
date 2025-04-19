@@ -1,7 +1,10 @@
 from typing import Union
 from pydantic import BaseModel
 from enum import Enum
+from localmodel import givephiprob
+
 import json
+
 
 
 
@@ -39,9 +42,12 @@ def levelone_check(data:emailpayload):
             wordsfound.append(word)
 
     suswordscount = len(wordsfound)
-    if(suswordscount>0 and suswordscount<3):
+    prob=givephiprob([data.emailbody])
+
+
+    if(prob>0.7):
         return checkstatus(status=threatlevel.sus,suswords=wordsfound)
-    elif(suswordscount>3):
+    elif(prob>0.5):
         return checkstatus(status=threatlevel.bad,suswords=wordsfound)
     else:
         return checkstatus(status=threatlevel.good,suswords=wordsfound)

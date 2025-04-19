@@ -1,4 +1,4 @@
-#!/home/noiz/Documents/GitHub/phishingdetectionengine/bin/python3
+#!/home/noiz/Documents/GitHub/phishingdetectionengine/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys
